@@ -6,10 +6,10 @@
       (else (filter-list-iter (cdr as) bs))))
   (filter-list-iter xs `()))
 
-(define (same-parity xs)
+(define (same-parity . xs)
   (if (null? xs) 
     `()
      (let ((parity (bitwise-and (car xs) 1)))
        (filter-list xs (lambda (x) (= (bitwise-and x 1) parity))))))
 
-(same-parity (list 2 1 3 4))
+(same-parity 2 1 3 4)
